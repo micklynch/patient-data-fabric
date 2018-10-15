@@ -18,12 +18,13 @@ type Organization struct {
 }
 
 type PatientData struct {
-	ObjectType   string       `json:"docType"`
-	AssetId      string       `json:"assetId"`
-	Owner        Patient      `json:"patient"`
-	Custodian    Organization `json:"organization"`
-	ResourceUri  string       `json:"resourceUri"`
-	ResourceHash string       `json:"resourceHash"`
+	ObjectType              string        `json:"docType"`
+	AssetId                 string        `json:"assetId"`
+	Owner                   *Patient      `json:"patient"`
+	Custodian               *Organization `json:"organization"`
+	ResourceUri             string        `json:"resourceUri"`
+	ResourceHash            string        `json:"resourceHash"`
+	PractitionersWithAccess []*string     `json:"practitionersWithAccess"`
 }
 
 // Init is called during chaincode instantiation to initialize any data.
